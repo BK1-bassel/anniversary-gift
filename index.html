@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For You, My Love 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================================================
+     SPLASH SCREEN
+     ============================================================ -->
+<div id="splash-screen">
+  <div class="splash-bg"></div>
+  <div class="splash-petals" id="splash-petals"></div>
+
+  <div class="splash-content">
+    <div class="splash-ornament">✦</div>
+    <p class="splash-eyebrow">a little something</p>
+    <h1 class="splash-title">Made for<br><em>You</em></h1>
+    <p class="splash-sub">with every piece of my heart</p>
+    <button class="splash-btn" id="splash-btn" onclick="enterSite()">
+      <span class="splash-btn-text">Open</span>
+      <span class="splash-btn-ring"></span>
+    </button>
+    <p class="splash-hint">tap to begin</p>
+  </div>
+
+  <div class="splash-corner splash-corner-tl">✦</div>
+  <div class="splash-corner splash-corner-tr">✦</div>
+  <div class="splash-corner splash-corner-bl">✦</div>
+  <div class="splash-corner splash-corner-br">✦</div>
+</div>
+
+<audio id="splash-audio" src="music/those-eyes.mp3" preload="auto"></audio>
+
+<!-- ============================================================
+     PAGE: INDEX
+     ============================================================ -->
+<div id="page-index" class="page active">
+
+  <button class="theme-btn-fixed" onclick="toggleTheme()" title="Toggle theme">
+    <span class="theme-icon">☀️</span>
+  </button>
+  <button class="lang-btn-fixed" onclick="toggleLang()" title="Toggle language">
+    <span class="lang-icon">ع</span>
+  </button>
+
+  <div class="petals" id="petals-index"></div>
+  <div class="stars"  id="stars-index"></div>
+
+  <!-- Decorative floating emojis -->
+  <div class="deco" style="top:8%;  left:5%;  animation-duration:5s;">🌸</div>
+  <div class="deco" style="top:15%; right:8%; animation-duration:6s; animation-delay:1s;">✨</div>
+  <div class="deco" style="bottom:15%; left:8%; animation-duration:7s; animation-delay:2s;">🌹</div>
+  <div class="deco" style="bottom:20%; right:6%; animation-duration:5.5s; animation-delay:0.5s;">💫</div>
+  <div class="deco" style="top:50%; left:2%; animation-duration:8s; animation-delay:1.5s;">🌷</div>
+
+  <div class="main">
+    <div class="header">
+      <p class="date-tag">Our Anniversary ✦ A Special Day</p>
+      <h1 class="main-title">Made with love,<br><span>just for you</span></h1>
+      <p class="subtitle">A little world I built — only ours</p>
+    </div>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-heart">❦</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- Together Since Counter (Home) -->
+    <div class="together-counter home-counter">
+      <p class="together-label">Together since May 30, 2023</p>
+      <div class="together-units">
+        <div class="together-unit"><div class="together-num-wrap"><span class="together-num" id="hc-years">0</span></div><span class="together-tag">years</span></div>
+        <div class="together-sep">·</div>
+        <div class="together-unit"><div class="together-num-wrap"><span class="together-num" id="hc-months">0</span></div><span class="together-tag">months</span></div>
+        <div class="together-sep">·</div>
+        <div class="together-unit"><div class="together-num-wrap"><span class="together-num" id="hc-days">0</span></div><span class="together-tag">days</span></div>
+        <div class="together-sep">·</div>
+        <div class="together-unit"><div class="together-num-wrap"><span class="together-num" id="hc-hours">0</span></div><span class="together-tag">hours</span></div>
+        <div class="together-sep">·</div>
+        <div class="together-unit"><div class="together-num-wrap"><span class="together-num" id="hc-minutes">0</span></div><span class="together-tag">minutes</span></div>
+        <div class="together-sep">·</div>
+        <div class="together-unit"><div class="together-num-wrap"><span class="together-num" id="hc-seconds">0</span></div><span class="together-tag">seconds</span></div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <!-- Card: Our Story -->
+      <a class="card" href="#" onclick="event.preventDefault(); showPage('page-story');">
+        <svg class="card-ornament" viewBox="0 0 30 30">
+          <path d="M2 2 L28 2 M2 28 L28 28" stroke="currentColor" stroke-width="1" fill="none"/>
+          <path d="M2 2 L2 12 M28 2 L28 12 M2 28 L2 18 M28 28 L28 18" stroke="currentColor" stroke-width="1" fill="none"/>
+        </svg>
+        <span class="card-icon">📖</span>
+        <p class="card-num">Chapter I</p>
+        <h2 class="card-title">Read Our Story</h2>
+        <p class="card-desc">Every beginning, every moment, every memory we've woven together into something beautiful.</p>
+        <span class="card-arrow">Open → </span>
+      </a>
+
+      <!-- Card: Game -->
+      <a class="card" href="#" onclick="event.preventDefault(); showPage('page-game'); initGame();">
+        <svg class="card-ornament" viewBox="0 0 30 30">
+          <path d="M2 2 L28 2 M2 28 L28 28" stroke="currentColor" stroke-width="1" fill="none"/>
+          <path d="M2 2 L2 12 M28 2 L28 12 M2 28 L2 18 M28 28 L28 18" stroke="currentColor" stroke-width="1" fill="none"/>
+        </svg>
+        <span class="card-icon">🎮</span>
+        <p class="card-num">Chapter II</p>
+        <h2 class="card-title">A Little Game</h2>
+        <p class="card-desc">How well do you know us? A playful quiz made just for the two of us — no cheating allowed.</p>
+        <span class="card-arrow">Play → </span>
+      </a>
+
+      <!-- Card: Letter -->
+      <a class="card" href="#" onclick="event.preventDefault(); showPage('page-letter');">
+        <svg class="card-ornament" viewBox="0 0 30 30">
+          <path d="M2 2 L28 2 M2 28 L28 28" stroke="currentColor" stroke-width="1" fill="none"/>
+          <path d="M2 2 L2 12 M28 2 L28 12 M2 28 L2 18 M28 28 L28 18" stroke="currentColor" stroke-width="1" fill="none"/>
+        </svg>
+        <span class="card-icon">💌</span>
+        <p class="card-num">Chapter III</p>
+        <h2 class="card-title">Anniversary Letter</h2>
+        <p class="card-desc">Words I wrote from the heart — saved here forever, just for you to read whenever you need to smile.</p>
+        <span class="card-arrow">Read → </span>
+      </a>
+
+      <!-- Card: Calendar -->
+      <a class="card" href="#" onclick="event.preventDefault(); showPage('page-calendar');">
+        <svg class="card-ornament" viewBox="0 0 30 30">
+          <path d="M2 2 L28 2 M2 28 L28 28" stroke="currentColor" stroke-width="1" fill="none"/>
+          <path d="M2 2 L2 12 M28 2 L28 12 M2 28 L2 18 M28 28 L28 18" stroke="currentColor" stroke-width="1" fill="none"/>
+        </svg>
+        <span class="card-icon">📅</span>
+        <p class="card-num">Chapter IV</p>
+        <h2 class="card-title">Our Special Days</h2>
+        <p class="card-desc">Every date that matters — the moments we never want to forget, kept here forever.</p>
+        <span class="card-arrow">Open → </span>
+      </a>
+    </div>
+
+    <p class="footer">Made with ♥ · For you · Always</p>
+  </div>
+</div><!-- /page-index -->
+
+
+<!-- ============================================================
+     PAGE: STORY
+     ============================================================ -->
+<div id="page-story" class="page">
+
+  <nav>
+    <a class="nav-back" href="#" onclick="event.preventDefault(); showPage('page-index');">Back</a>
+    <span class="nav-title">Our Story</span>
+    <button class="theme-btn" onclick="toggleTheme()"><span class="theme-icon">☀️</span></button>
+    <button class="lang-btn" onclick="toggleLang()"><span class="lang-icon">ع</span></button>
+  </nav>
+
+  <section class="hero">
+    <p class="hero-eyebrow">✦ The beginning of everything ✦</p>
+    <h1 class="hero-title">Our <em>Story</em></h1>
+    <p class="hero-sub">Every love has a story. This one is ours — told in moments, feelings, and the little things only we remember.</p>
+    <p class="scroll-hint">↓ Scroll to remember</p>
+  </section>
+
+  <!-- ── Together Since Counter ── -->
+  <div class="together-counter" id="together-counter">
+    <p class="together-label">Together since May 30, 2023</p>
+    <div class="together-units">
+      <div class="together-unit"><div class="together-num-wrap"><span class="together-num" id="tc-years">0</span></div><span class="together-tag">years</span></div>
+      <div class="together-sep">·</div>
+      <div class="together-unit"><div class="together-num-wrap"><span class="together-num" id="tc-months">0</span></div><span class="together-tag">months</span></div>
+      <div class="together-sep">·</div>
+      <div class="together-unit"><div class="together-num-wrap"><span class="together-num" id="tc-days">0</span></div><span class="together-tag">days</span></div>
+      <div class="together-sep">·</div>
+      <div class="together-unit"><div class="together-num-wrap"><span class="together-num" id="tc-hours">0</span></div><span class="together-tag">hours</span></div>
+      <div class="together-sep">·</div>
+      <div class="together-unit"><div class="together-num-wrap"><span class="together-num" id="tc-minutes">0</span></div><span class="together-tag">minutes</span></div>
+      <div class="together-sep">·</div>
+      <div class="together-unit"><div class="together-num-wrap"><span class="together-num" id="tc-seconds">0</span></div><span class="together-tag">seconds</span></div>
+    </div>
+  </div>
+
+  <div class="timeline" id="timeline">
+
+    <!-- Chapter 1 -->
+    <div class="chapter">
+      <div class="chapter-content">
+        <p class="chapter-date">April 28th, 2021</p>
+        <h2 class="chapter-heading">The Beginning of Everything — My First Breath</h2>
+        <p class="chapter-text">Every single thing started when he walked in through our door. Even my life started back then. We were supposed to take a school lesson, but once I saw your beauty from the very first sight, everything changed. Literally, everything. I got anxious because I've never seen a girl that is beauty as much as you. I couldn't believe it. I must confess I didn't understand the word that came out from the teacher. All I was looking for is to look at you once, only once. To memorize all your details so I can dream about you late night, you were and you still stunning, my love.</p>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 1.5 — After Long Time (Fell In Love Again) -->
+    <div class="chapter">
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-content">
+        <p class="chapter-date">October 15th, 2022</p>
+        <h2 class="chapter-heading">After Long Time — Fell In Love Again</h2>
+        <p class="chapter-text">Before that day, I was frustrated, depressed, and completely lost — because I was losing hope to get you to like me, to love me, to want me. But I was so lucky that we got an invitation call from your mother, to visit you. I brought you a necklace, because your birthday was five days away. I had the best day ever. We chatted for so long. We laughed so much and so hard. And I fell in love all over again — with you, with your beauty, with your smile, with your teeth, with your hair, with your eyes, with every single detail of you that I still remember and memorize from that day. I was so happy from one specific thing that happened: I made you get interested in me by doing some magic tricks for you, and scaring you a little bit. I can't forget that day. I regained all the hope I had lost.</p>
+      </div>
+    </div>
+
+    <!-- Chapter: December 18, 2022 -->
+    <div class="chapter">
+      <div class="chapter-content">
+        <p class="chapter-date">December 18th, 2022</p>
+        <h2 class="chapter-heading">The Day I Died Out of Secret Love</h2>
+        <p class="chapter-text">This day is still buried in my heart and mind till today. I was dying because of the hidden feelings. I kept looking in your eyes, wishing that one day they would be mine. We were cheering together. I was convincing you to come to my school just to see you more, chat with you more, and to have the opportunity to look into your eyes every single day. That day, I saw your cheering full soul — and all I could hear was your beautiful voice.</p>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter: December 30, 2022 -->
+    <div class="chapter">
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-content">
+        <p class="chapter-date">December 30th, 2022</p>
+        <h2 class="chapter-heading">My Dream Image</h2>
+        <p class="chapter-text">I didn't believe anything from that day. There was an inner voice telling me: "We took a picture alone — you are so close to getting her." I couldn't believe my eyes. I actually got a picture with you. I took a picture with the one I adore and love. I was wishing that this picture would be the beginning of our album — and guess what? It was. I was so happy that day, even words can't express my feelings. When you left, I fell asleep accidentally where you were sitting — because I felt the warmth that I had been missing my entire life.</p>
+      </div>
+    </div>
+
+    <!-- Chapter: January 1, 2023 -->
+    <div class="chapter">
+      <div class="chapter-content">
+        <p class="chapter-date">January 1st, 2023</p>
+        <h2 class="chapter-heading">Confession — What The Hell Did I Do?</h2>
+        <p class="chapter-text">You trapped me in the corner, you smart animal. You knew there was something telling me to confess my feelings towards you — so you kept pressing on me till I spit it out. And I said it to you. I told you that I like you. When I sent you that message, I turned off my phone, threw it away, and started thinking — what the hell did I do? I told you that I like you!! To be honest, I felt proud that I told you. But you weren't clear about what you wanted, so I stepped back, went back to hiding my feelings, and promised myself I would try to hide it as much as I could. My heart was racing and I was so anxious. I wanted everything to end in a good way — I didn't want to lose you because I told you that. Fortunately, I didn't... we stayed good friends and neighbors. For a little while 🙈</p>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter: February 24, 2023 -->
+    <div class="chapter">
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-content">
+        <p class="chapter-date">February 24th, 2023</p>
+        <h2 class="chapter-heading">Writing Our First Page From Our First Book</h2>
+        <p class="chapter-text">Two days before, you were sending signals all over the place. I remember you getting bothered because I didn't understand them — actually I did, but I didn't believe them. I thought I was dreaming, or living in my own imagination. But two days later, we were sitting, chilling, listening to music and singing. You reached for the phone to change the song — and all of a sudden you showed me the screen, saying you couldn't find a song named "I Love You." I was shocked to death. No words. Just staring into your eyes and asking you — "Me???" I literally couldn't believe it. I was in actual shock. No words coming out, just happiness and warmth. When I went back home, I looked in the mirror and said: "All of those signals were true. I wasn't dreaming. Everything is a reality." That's when I felt that I had won the entire world — that I was the king of this world.</p>
+      </div>
+    </div>
+
+    <!-- Chapter: February 27, 2023 -->
+    <div class="chapter">
+      <div class="chapter-content">
+        <p class="chapter-date">February 27th, 2023</p>
+        <h2 class="chapter-heading">Our First Date</h2>
+        <p class="chapter-text">Our first date. Our first long walk. Our first favorite day. I received a photo of your eyes, crying. You said you were heading to your mom's salon. The moment I saw that photo, I yelled at the taxi driver — "Wait, go back, please!!" I texted you right then: get ready, because I'm taking you out of this mood. Sadness doesn't suit your beautiful face, Princess. I went back and took you. We got there, sat for a bit — then I played our song. "Those Eyes." The song that gives us joy now, and in every single moment we play it. Then we went walking — listening to music, singing, chatting, laughing. It was the best first day ever. That day started so bad, but ended the best way possible.</p>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter: March 8, 2023 -->
+    <div class="chapter">
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-content">
+        <p class="chapter-date">March 8th, 2023</p>
+        <h2 class="chapter-heading">Living in a Movie — Night Walk</h2>
+        <p class="chapter-text">I took you out with me to choose what I'd gift mom for her birthday. We picked a jewelry piece, then headed back home. On the way back, we decided to walk instead of taking a taxi. We were having so much fun — and then it started to rain. It rained on us, right there in the middle of the street. And in that moment, you looked into my eyes and said: "You know in the movies, when it's raining on the main characters, it means they will end up together when the movie ends." To be honest, I didn't know that. But now I know — we will end up together. Hand in hand, no matter what. Then we sat on your threshold, looking up at the sky, the stars, and the moon. It was one of our best days.</p>
+      </div>
+    </div>
+
+    <!-- Chapter: April 19, 2023 -->
+    <div class="chapter">
+      <div class="chapter-content">
+        <p class="chapter-date">April 19th, 2023</p>
+        <h2 class="chapter-heading">The Dream Day</h2>
+        <p class="chapter-text">We were hanging out with our siblings at home — watching a football match, having fun. But something felt different. In my heart, and in yours too. Something felt so right. So good. So warming. I didn't know what that feeling was then — but what I discovered after is that we felt it together. Despite our siblings being right there, we kept loving each other. Eye contact, every love language, laughing at each other's jokes, focusing on no one but each other. That day was so special — to me and to you. That day, we felt that we were going to choose each other. That we were going to end up together. And here we are.</p>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter: June 14, 2024 -->
+    <div class="chapter">
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-content">
+        <p class="chapter-date">June 14th, 2024</p>
+        <h2 class="chapter-heading">🧤 I Saved Those Penalties For You</h2>
+        <p class="chapter-text">I invited you to be there for me in that game and to show you that I don't only save my net from some goals — I'm ready to save your smile even if it breaks my arms. Watching you cheering for me is an indescribable feeling. That day I saved 3 penalties. Every time I dove and stopped the ball, I heard your voice above everyone else. I think I saved those penalties for you. And now I'm telling you — thank you for being there, as always.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 2 -->
+    <div class="chapter">
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-content">
+        <p class="chapter-date">The first real moment</p>
+        <h2 class="chapter-heading">Our first date</h2>
+        <p class="chapter-text">Replace this with the story of your first date — where you went, what you wore, how nervous (or not!) you were, and that one moment you'll never forget.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div class="chapter">
+      <div class="chapter-content">
+        <p class="chapter-date">A turning point</p>
+        <h2 class="chapter-heading">When I knew</h2>
+        <p class="chapter-text">That single moment when everything clicked — when you just knew. Write it here. The small details are the ones worth keeping forever.</p>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div class="chapter">
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-content">
+        <p class="chapter-date">Our favourite memory</p>
+        <h2 class="chapter-heading">The one we always talk about</h2>
+        <p class="chapter-text">Every couple has that one trip, that one night, that one laugh that defines them. Write yours here — with all the details only you two know.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 5 -->
+    <div class="chapter">
+      <div class="chapter-content">
+        <p class="chapter-date">May 30th, 2023</p>
+        <h2 class="chapter-heading">The Day Our Relationship Was Born</h2>
+        <p class="chapter-text">The day our relationship was born. The day we started calling each other babe, honey, my love. The day my dream came true. Back then, I thought it meant finding someone who loves everything about me, and I love everything about them. But it turns out it is something completely different — something deeper, much more meaningful. A responsibility, a happy life. Better than I ever expected. Looking into your eyes and telling you that I love you — with blushing eyes and a skipping heartbeat — that is so much more than what I always dreamed of. But a good different. The best different. Since that day, my life changed completely. You were part of me — what they call "my second half." But now you are not just a part of me. You are everything. Every single thing. And now Princess — it's been 3 years since we sat together and watched that sunrise, telling ourselves we would end up together. We didn't just end up together. We became each other's everything. And I would choose you again, in every single version of that day.</p>
+      </div>
+      <div class="chapter-dot"></div>
+      <div class="chapter-photo">
+        <div class="photo-slot" onclick="triggerUpload(this)">
+          <input type="file" accept="image/*" onchange="loadPhoto(this)">
+          <span class="photo-hint">📷</span>
+          <span class="photo-label">Add a photo</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /timeline -->
+
+  <div class="end-heart">
+    <span>♥</span><br>
+    To be continued, always
+  </div>
+
+</div><!-- /page-story -->
+
+
+<!-- ============================================================
+     PAGE: GAME
+     ============================================================ -->
+<div id="page-game" class="page">
+
+  <nav>
+    <a class="nav-back" href="#" onclick="event.preventDefault(); showPage('page-index');">Back</a>
+    <span class="nav-title">Our Little Game</span>
+    <button class="theme-btn" onclick="toggleTheme()"><span class="theme-icon">☀️</span></button>
+    <button class="lang-btn" onclick="toggleLang()"><span class="lang-icon">ع</span></button>
+  </nav>
+
+  <div class="container">
+
+    <!-- ── GAME HUB (pick a game) ── -->
+    <div class="screen active" id="game-hub">
+      <span class="intro-icon">🎮</span>
+      <p class="intro-eyebrow">Chapter II · Just for us</p>
+      <h1 class="intro-title">Choose your<br><em>game</em></h1>
+      <p class="intro-sub">Two little games, made with love. Pick one and let the fun begin!</p>
+      <div class="game-hub-cards">
+        <button class="game-hub-card" onclick="showScreen('intro-screen')">
+          <span class="game-hub-icon">🧠</span>
+          <p class="game-hub-title">How well do you know us?</p>
+          <p class="game-hub-desc">A quiz about our story — no cheating allowed.</p>
+        </button>
+        <button class="game-hub-card" onclick="showScreen('proposal-screen'); _initNoButton();">
+          <span class="game-hub-icon">💍</span>
+          <p class="game-hub-title">The Big Question</p>
+          <p class="game-hub-desc">One question. Only one right answer. Good luck.</p>
+        </button>
+        <button class="game-hub-card" onclick="showScreen('memory-screen'); showMemoryLevelSelect();">
+          <span class="game-hub-icon">🃏</span>
+          <p class="game-hub-title">Memory Match</p>
+          <p class="game-hub-desc">Flip the cards, find the pairs — a little love game for your eyes only.</p>
+        </button>
+        <button class="game-hub-card" onclick="showScreen('puzzle-screen'); showPuzzleLevelSelect();">
+          <span class="game-hub-icon">🧩</span>
+          <p class="game-hub-title">Picture Puzzle</p>
+          <p class="game-hub-desc">Piece together our photo — can you solve it in time?</p>
+        </button>
+        <button class="game-hub-card" onclick="showScreen('guessdate-screen'); initGuessDate();">
+          <span class="game-hub-icon">📅</span>
+          <p class="game-hub-title">Guess the Date</p>
+          <p class="game-hub-desc">Can you remember when our most special moments happened?</p>
+        </button>
+        <button class="game-hub-card" onclick="showScreen('wrapped-screen'); initPlayer();">
+          <span class="game-hub-icon">🎵</span>
+          <p class="game-hub-title">Our Playlists</p>
+          <p class="game-hub-desc">Songs that remind me of us — press play and just feel it.</p>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── GAME 3: Memory Match ── -->
+    <div class="screen" id="memory-screen">
+
+      <!-- Level Select -->
+      <div id="memory-level-select">
+        <span class="intro-icon">🃏</span>
+        <p class="intro-eyebrow">Game 3 · Memory Match</p>
+        <h1 class="intro-title" style="margin-bottom:0.4rem;">Choose your <em>level</em></h1>
+        <p class="intro-sub" style="margin-bottom:1.5rem;">More pairs, more challenge — how sharp is your memory?</p>
+        <div class="memory-level-cards" id="memory-level-cards"></div>
+        <br>
+        <button class="btn-back-hub" onclick="showScreen('game-hub');">← Back to games</button>
+      </div>
+
+      <!-- Game Area -->
+      <div id="memory-game-area" style="display:none;">
+        <span class="mem-level-badge-wrap"><span class="mem-level-badge" id="mem-level-badge">Level 1 · Easy</span></span>
+        <div class="memory-meta">
+          <span class="memory-stat">💘 Pairs: <strong id="mem-pairs">0 / 4</strong></span>
+          <span class="memory-stat">🔄 Flips: <strong id="mem-flips">0</strong></span>
+          <span class="memory-stat">⏱ Time: <strong id="mem-timer">0s</strong></span>
+        </div>
+        <div class="memory-grid" id="memory-grid"></div>
+        <div class="memory-win" id="memory-win">
+          <p class="memory-win-emoji">🥰</p>
+          <p class="memory-win-text">You found all the pairs!</p>
+          <p class="memory-win-sub" id="memory-win-sub"></p>
+          <div style="display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:center;margin-top:1.5rem;">
+            <button class="btn-start" onclick="initMemoryGame()">Play Again →</button>
+            <button class="btn-start" id="btn-next-level" style="background:transparent;border:1px solid var(--accent);color:var(--accent);" onclick="goNextMemoryLevel()">Next Level →</button>
+          </div>
+        </div>
+        <br>
+        <button class="btn-back-hub" onclick="showMemoryLevelSelect(); stopMemoryTimer();">← Choose level</button>
+        <button class="btn-back-hub" onclick="showScreen('game-hub'); stopMemoryTimer();" style="margin-left:0.5rem;">← Back to games</button>
+      </div>
+
+    </div>
+
+    <!-- ── QUIZ: Intro Screen ── -->
+    <div class="screen" id="intro-screen">
+      <span class="intro-icon">🧠</span>
+      <p class="intro-eyebrow">Game 1 · Just for us</p>
+      <h1 class="intro-title">How well do you<br>know <em>us</em>?</h1>
+      <p class="intro-sub">A playful quiz about our love story, our quirks, and the little things only the two of us know. No cheating!</p>
+      <button class="btn-start" onclick="startGame()">Let's Play →</button>
+      <br><br>
+      <button class="btn-back-hub" onclick="showScreen('game-hub')">← Back to games</button>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div class="screen" id="quiz-screen">
+      <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+      <p class="q-num" id="q-num">Question 1 of 8</p>
+      <p class="q-text" id="q-text"></p>
+      <div class="options" id="options"></div>
+      <div class="feedback" id="feedback"></div>
+      <button class="btn-next" id="btn-next" onclick="nextQuestion()">Next →</button>
+    </div>
+
+    <!-- Result Screen -->
+    <div class="screen" id="result-screen">
+      <span class="result-icon" id="result-icon">🏆</span>
+      <p class="q-num">Your score</p>
+      <div class="result-score" id="result-score">0/8</div>
+      <h2 class="result-title" id="result-title">Amazing!</h2>
+      <p class="result-msg" id="result-msg"></p>
+      <button class="btn-restart" onclick="restartGame()">Play Again</button>
+      <a class="btn-restart" href="#" onclick="event.preventDefault(); showPage('page-letter');">Read my letter →</a>
+      <br><br>
+      <button class="btn-back-hub" onclick="showScreen('game-hub')">← Back to games</button>
+    </div>
+
+    <!-- ── GAME 2: The Impossible No ── -->
+    <div class="screen" id="proposal-screen" data-noclean="true">
+      <div id="no-btn-arena" class="no-btn-arena">
+        <span class="intro-icon proposal-ring" style="animation: float 2s ease-in-out infinite;">💍</span>
+        <p class="intro-eyebrow">Game 2 · The Big Question</p>
+        <h1 class="proposal-question">Will you spend the<br>rest of your life<br>with me?</h1>
+        <button class="btn-yes" onclick="_cleanupNoButton(); showScreen('proposal-yes-screen');">Yes 💕</button>
+        <button class="btn-no" id="btn-no">No</button>
+        <button class="btn-back-hub proposal-back" onclick="_cleanupNoButton(); showScreen('game-hub');">← Back to games</button>
+      </div>
+    </div>
+
+    <!-- Proposal YES result -->
+    <div class="screen" id="proposal-yes-screen">
+      <span class="intro-icon">🥹</span>
+      <h1 class="intro-title" style="font-size:clamp(1.8rem,5vw,3.2rem);">I knew you would<br><em>say yes.</em></h1>
+      <p class="intro-sub" style="margin-top:1rem;">You just made me the happiest person alive. Forever starts now. ❤️</p>
+      <button class="btn-start" onclick="showScreen('proposal-screen'); _initNoButton();" style="margin-top:2rem;">Play again →</button>
+      <br><br>
+      <button class="btn-back-hub" onclick="_cleanupNoButton(); showScreen('game-hub');">← Back to games</button>
+    </div>
+
+    <!-- ── GAME 4: Picture Puzzle ── -->
+    <div class="screen" id="puzzle-screen">
+
+      <!-- Level Select -->
+      <div id="puzzle-level-select">
+        <span class="intro-icon">🧩</span>
+        <p class="intro-eyebrow">Game 4 · Picture Puzzle</p>
+        <h1 class="intro-title" style="margin-bottom:0.4rem;">Choose your <em>level</em></h1>
+        <p class="intro-sub" style="margin-bottom:1.5rem;">Drag &amp; drop the pieces to rebuild the photo. More pieces = more challenge!</p>
+        <div class="puzzle-level-cards" id="puzzle-level-cards"></div>
+        <br>
+        <button class="btn-back-hub" onclick="showScreen('game-hub');">← Back to games</button>
+      </div>
+
+      <!-- Game Area -->
+      <div id="puzzle-game-area" style="display:none;">
+        <span class="mem-level-badge-wrap"><span class="mem-level-badge" id="puzzle-level-badge">Level 1 · Easy</span></span>
+        <div class="memory-meta">
+          <span class="memory-stat">✅ Placed: <strong id="puzzle-placed">0 / 16</strong></span>
+          <span class="memory-stat">🔄 Moves: <strong id="puzzle-moves">0</strong></span>
+          <span class="memory-stat">⏱ Time: <strong id="puzzle-timer">0s</strong></span>
+        </div>
+
+        <!-- Reference photo (shown for levels 4-10) -->
+        <div id="puzzle-ref-wrap" style="display:none; text-align:center; margin-bottom:0.8rem;">
+          <p class="puzzle-label" style="margin-bottom:0.4rem;">👀 Reference</p>
+          <img id="puzzle-ref-img" src="" alt="Reference photo" style="border-radius:0.7rem; max-width:160px; width:100%; box-shadow:0 4px 14px rgba(0,0,0,0.25); border:2px solid var(--card-border);">
+        </div>
+
+        <div class="puzzle-area">
+          <div class="puzzle-board-wrap">
+            <p class="puzzle-label">🖼 Board</p>
+            <div class="puzzle-board" id="puzzle-board"></div>
+          </div>
+          <div class="puzzle-tray-wrap">
+            <p class="puzzle-label">🧩 Pieces</p>
+            <div class="puzzle-tray" id="puzzle-tray"></div>
+          </div>
+        </div>
+
+        <!-- hidden legacy placeholder (kept for JS refs) -->
+        <div id="puzzle-win" style="display:none;"></div>
+
+        <!-- Centered win overlay -->
+        <div id="puzzle-win-overlay" style="display:none;">
+          <div class="puzzle-win-card">
+            <p class="puzzle-win-emoji" id="puzzle-win-emoji">🌟</p>
+            <h2 class="puzzle-win-title" id="puzzle-win-title">You nailed it!</h2>
+            <p class="puzzle-win-msg"   id="puzzle-win-msg">Every piece in its perfect place.</p>
+            <p class="puzzle-win-stats" id="puzzle-win-stats"></p>
+            <div class="puzzle-win-btns">
+              <button class="btn-start" id="puzzle-win-next-btn">Next Level →</button>
+              <button class="btn-start" style="background:transparent;border:1px solid var(--accent);color:var(--accent);" onclick="initPuzzleGame()">Play Again</button>
+              <button class="btn-start" style="background:transparent;border:1px solid var(--accent);color:var(--accent);" onclick="showScreen('game-hub'); stopPuzzleTimer(); document.getElementById('puzzle-win-overlay').classList.remove('visible'); document.getElementById('puzzle-win-overlay').style.display='none';">← Game List</button>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <button class="btn-back-hub" onclick="showPuzzleLevelSelect(); stopPuzzleTimer();">← Choose level</button>
+        <button class="btn-back-hub" onclick="showScreen('game-hub'); stopPuzzleTimer();" style="margin-left:0.5rem;">← Back to games</button>
+      </div>
+
+    </div>
+
+    <!-- ── GAME 5: Guess the Date ── -->
+    <div class="screen" id="guessdate-screen">
+      <span class="intro-icon">📅</span>
+      <p class="intro-eyebrow">Game 5 · Guess the Date</p>
+      <h1 class="intro-title" style="margin-bottom:0.4rem;">When did it <em>happen?</em></h1>
+      <p class="intro-sub" style="margin-bottom:1.5rem;">A special moment flashes on screen — guess the day, month and year it happened!</p>
+
+      <div id="guessdate-play" style="display:none; width:100%; max-width:500px; margin:0 auto;">
+        <div class="memory-meta" style="margin-bottom:1rem;">
+          <span class="memory-stat">✨ Round: <strong id="gd-round">1 / 6</strong></span>
+          <span class="memory-stat">🏆 Score: <strong id="gd-score">0</strong></span>
+        </div>
+        <div class="gd-card">
+          <p class="gd-event" id="gd-event"></p>
+          <p class="gd-hint" id="gd-hint"></p>
+        </div>
+        <div class="gd-inputs">
+          <div class="gd-select-wrap">
+            <span class="gd-select-label">Day</span>
+            <select class="gd-select" id="gd-day">
+              <option value="">--</option>
+              <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+              <option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
+              <option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option>
+              <option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option>
+              <option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option>
+              <option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+          </div>
+          <div class="gd-select-wrap">
+            <span class="gd-select-label">Month</span>
+            <select class="gd-select" id="gd-month">
+              <option value="">--</option>
+              <option value="1">January</option><option value="2">February</option><option value="3">March</option>
+              <option value="4">April</option><option value="5">May</option><option value="6">June</option>
+              <option value="7">July</option><option value="8">August</option><option value="9">September</option>
+              <option value="10">October</option><option value="11">November</option><option value="12">December</option>
+            </select>
+          </div>
+          <div class="gd-select-wrap">
+            <span class="gd-select-label">Year</span>
+            <select class="gd-select" id="gd-year">
+              <option value="">--</option>
+              <option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option>
+              <option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-start" id="gd-submit-btn" onclick="submitGuessDate()" style="margin-top:1rem;">Submit Guess →</button>
+        <div class="feedback" id="gd-feedback" style="margin-top:1rem;"></div>
+        <button class="btn-next" id="gd-next-btn" onclick="nextGuessDate()" style="display:none; margin-top:0.8rem;">Next →</button>
+      </div>
+
+      <div id="guessdate-result" style="display:none; text-align:center;">
+        <p class="result-icon" id="gd-result-icon">🎉</p>
+        <p class="q-num">Your score</p>
+        <div class="result-score" id="gd-result-score">0/6</div>
+        <h2 class="result-title" id="gd-result-title"></h2>
+        <p class="result-msg" id="gd-result-msg"></p>
+        <button class="btn-restart" onclick="initGuessDate()">Play Again</button>
+        <br><br>
+        <button class="btn-back-hub" onclick="showScreen('game-hub');">← Back to games</button>
+      </div>
+
+      <div id="guessdate-start-btns">
+        <button class="btn-start" onclick="startGuessDate()" style="margin-top:1.5rem;">Let's Play →</button>
+        <br><br>
+        <button class="btn-back-hub" onclick="showScreen('game-hub');">← Back to games</button>
+      </div>
+    </div>
+
+    <!-- ── MUSIC PLAYER ── -->
+    <div class="screen" id="wrapped-screen">
+
+      <!-- Playlist Selector -->
+      <div id="player-playlist-select">
+        <span class="intro-icon">🎵</span>
+        <p class="intro-eyebrow">♪ Our Music</p>
+        <h1 class="intro-title" style="margin-bottom:0.4rem;">Our <em>Playlists</em></h1>
+        <p class="intro-sub" style="margin-bottom:1.8rem;">Songs that carry pieces of us — pick a mood and press play.</p>
+        <div class="pl-list" id="pl-list"></div>
+        <br>
+        <button class="btn-back-hub" onclick="showScreen('game-hub');">Back</button>
+      </div>
+
+      <!-- Player -->
+      <div id="player-main" style="display:none; width:100%; max-width:480px; margin:0 auto;">
+
+        <!-- Back to playlists -->
+        <button class="pl-back-btn" onclick="showPlaylistSelect()">‹ Playlists</button>
+
+        <!-- Album Art -->
+        <div class="player-art-wrap">
+          <div class="player-art" id="player-art">
+            <div class="player-art-inner">
+              <span class="player-art-note" id="player-art-note">♪</span>
+            </div>
+            <div class="player-vinyl-ring"></div>
+          </div>
+          <div class="player-art-glow" id="player-art-glow"></div>
+        </div>
+
+        <!-- Song Info -->
+        <div class="player-info">
+          <p class="player-playlist-label" id="player-playlist-label">Playlist</p>
+          <h2 class="player-song-title" id="player-song-title">Song Title</h2>
+          <p class="player-artist" id="player-artist">Artist</p>
+        </div>
+
+        <!-- Progress -->
+        <div class="player-progress-wrap">
+          <span class="player-time" id="player-current">0:00</span>
+          <div class="player-progress-bar" id="player-progress-bar" onclick="seekAudio(event)">
+            <div class="player-progress-fill" id="player-progress-fill"></div>
+            <div class="player-progress-thumb" id="player-progress-thumb"></div>
+          </div>
+          <span class="player-time" id="player-duration">0:00</span>
+        </div>
+
+        <!-- Controls -->
+        <div class="player-controls">
+          <button class="player-btn player-btn-sm" id="btn-shuffle" onclick="toggleShuffle()" title="Shuffle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+          </button>
+          <button class="player-btn player-btn-sm" onclick="prevSong()" title="Previous">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 20L9 12l10-8v16zM5 4h2v16H5z"/></svg>
+          </button>
+          <button class="player-btn player-btn-lg" id="btn-playpause" onclick="togglePlay()" title="Play / Pause">
+            <svg id="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          </button>
+          <button class="player-btn player-btn-sm" onclick="nextSong()" title="Next">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 4l10 8-10 8V4zm14 0h-2v16h2z"/></svg>
+          </button>
+          <button class="player-btn player-btn-sm" id="btn-repeat" onclick="toggleRepeat()" title="Repeat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          </button>
+        </div>
+
+        <!-- Track List -->
+        <div class="player-tracklist" id="player-tracklist"></div>
+
+        <button class="btn-back-hub" style="margin-top:1.2rem;" onclick="showScreen('game-hub'); stopPlayer();">← Back to games</button>
+      </div>
+
+      <!-- Hidden audio element -->
+      <audio id="player-audio"></audio>
+
+    </div>
+
+  </div>
+</div><!-- /page-game -->
+
+
+<!-- ============================================================
+     PAGE: LETTER
+     ============================================================ -->
+<div id="page-letter" class="page">
+
+  <nav>
+    <a class="nav-back" href="#" onclick="event.preventDefault(); showPage('page-index');">Back</a>
+    <span class="nav-title">Anniversary Letter</span>
+    <button class="theme-btn" onclick="toggleTheme()"><span class="theme-icon">☀️</span></button>
+    <button class="lang-btn" onclick="toggleLang()"><span class="lang-icon">ع</span></button>
+  </nav>
+
+  <div class="petals" id="petals-letter"></div>
+  <div class="stars"  id="stars-letter"></div>
+
+  <main class="letter-container">
+    <div class="letter-card">
+      <p class="letter-eyebrow">Chapter III · A Letter</p>
+      <h1 class="letter-title">To you, my constant rhyme</h1>
+      <p class="letter-lead">A short letter, written to match the tone of the pages — soft, warm, and rhymed just for you.</p>
+
+      <div class="poem">
+        <p>In morning light you are my song, the place where I belong,</p>
+        <p>Your laugh, a bell that rings so clear — it chases every fear.</p>
+        <p>We walk through storms and find a dance; in simple looks, a second chance,</p>
+        <p>When nights grow long and shadows play, you hold the dark and bring the day.</p>
+        <p>With every coffee, every mile, you steady storms and coax a smile,</p>
+        <p>Your hand fits mine like secret keys — unlocks the small, the grand, the ease.</p>
+        <p>We keep our maps in folded notes, and sail by where the heartboat floats,</p>
+        <p>We plant our names in quiet crests, then reap the light in small bequests.</p>
+        <p>If seasons change and time grows thin, I'll find you where the days begin,</p>
+        <p>And if the world forgets to rhyme, we'll stitch the lines and keep the time.</p>
+        <p>So take this letter, fold it near — a little charm to hold you dear,</p>
+        <p>Read it when the road feels long; remember still: with you, I'm home.</p>
+      </div>
+
+      <div class="signature">always yours,<br><strong>—</strong> with love</div>
+    </div>
+
+    <p class="letter-footer">Made with ♥ · For you · Always</p>
+  </main>
+
+</div><!-- /page-letter -->
+
+
+
+<!-- ============================================================
+     PAGE: CALENDAR
+     ============================================================ -->
+<div id="page-calendar" class="page">
+
+  <!-- background layers (same pattern as other pages) -->
+  <div class="stars" id="cal-stars"></div>
+  <div class="petals" id="cal-petals"></div>
+
+  <!-- nav -->
+  <nav>
+    <button class="nav-back" onclick="showPage('page-index')">Back</button>
+    <span class="nav-title">Our Story, Day by Day</span>
+    <button class="theme-btn" onclick="toggleTheme()"><span class="theme-icon">☀️</span></button>
+  </nav>
+
+  <div class="cal-wrapper">
+
+    <!-- hero -->
+    <div class="cal-hero">
+      <p class="cal-eyebrow">Chapter I · Chapter IV</p>
+      <h1 class="cal-title">A Calendar of Us</h1>
+      <p class="cal-sub">Every date that changed everything</p>
+    </div>
+
+    <!-- month nav -->
+    <div class="cal-month-nav">
+      <button class="cal-nav-btn" onclick="calPrevMonth()">‹</button>
+      <span class="cal-month-label" id="cal-month-label">May 2025</span>
+      <button class="cal-nav-btn" onclick="calNextMonth()">›</button>
+    </div>
+
+    <!-- weekday headers -->
+    <div class="cal-grid-head">
+      <span>Sun</span><span>Mon</span><span>Tue</span>
+      <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+    </div>
+
+    <!-- day cells rendered by JS -->
+    <div class="cal-grid" id="cal-grid"></div>
+
+    <!-- legend -->
+    <div class="cal-legend">
+      <span class="cal-legend-dot special"></span> Special day
+      <span class="cal-legend-dot today"></span> Today
+    </div>
+
+  </div><!-- /.cal-wrapper -->
+
+  <!-- ── Story Modal ── -->
+  <div class="story-modal-backdrop" id="story-modal-backdrop" onclick="closeStoryModal()"></div>
+  <div class="story-modal" id="story-modal">
+    <button class="story-modal-close" onclick="closeStoryModal()">✕</button>
+    <div class="story-modal-inner" id="story-modal-inner">
+      <!-- filled by JS -->
+    </div>
+  </div>
+
+</div><!-- /#page-calendar -->
+<script src="app.js"></script>
+</body>
+</html>
