@@ -608,7 +608,122 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ============================================================
    SHARED: LANGUAGE TOGGLE (EN ↔ AR)
    ============================================================ */
-
+const translations = {
+  en: {
+    // Index
+    'date-tag': 'Our Anniversary ✦ A Special Day',
+    'main-title': 'Made with love,<br><span>just for you</span>',
+    'subtitle': 'A little world I built — only ours',
+    'card-num-1': 'Chapter I',
+    'card-title-1': 'Read Our Story',
+    'card-desc-1': "Every beginning, every moment, every memory we've woven together into something beautiful.",
+    'card-arrow-1': 'Open → ',
+    'card-num-2': 'Chapter II',
+    'card-title-2': 'A Little Game',
+    'card-desc-2': 'How well do you know us? A playful quiz made just for the two of us — no cheating allowed.',
+    'card-arrow-2': 'Play → ',
+    'card-num-3': 'Chapter III',
+    'card-title-3': 'Anniversary Letter',
+    'card-desc-3': 'Words I wrote from the heart — saved here forever, just for you to read whenever you need to smile.',
+    'card-arrow-3': 'Read → ',
+    'footer-txt': 'Made with ♥ · For you · Always',
+    // Nav titles
+    'nav-story': 'Our Story',
+    'nav-game': 'Our Little Game',
+    'nav-letter': 'Anniversary Letter',
+    // Story
+    'hero-eyebrow': '✦ The beginning of everything ✦',
+    'hero-title': 'Our <em>Story</em>',
+    'hero-sub': 'Every love has a story. This one is ours — told in moments, feelings, and the little things only we remember.',
+    'scroll-hint': '↓ Scroll to remember',
+    'ch1-date': 'The very beginning',
+    'ch1-heading': 'How we met',
+    'ch1-text': 'Write your story here — where you first met, what you thought, what made you smile. This is your canvas to fill with your own words and memories.',
+    'ch2-date': 'The first real moment',
+    'ch2-heading': 'Our first date',
+    'ch2-text': "Replace this with the story of your first date — where you went, what you wore, how nervous (or not!) you were, and that one moment you'll never forget.",
+    'ch3-date': 'A turning point',
+    'ch3-heading': 'When I knew',
+    'ch3-text': 'That single moment when everything clicked — when you just knew. Write it here. The small details are the ones worth keeping forever.',
+    'ch4-date': 'Our favourite memory',
+    'ch4-heading': 'The one we always talk about',
+    'ch4-text': 'Every couple has that one trip, that one night, that one laugh that defines them. Write yours here — with all the details only you two know.',
+    'ch5-date': 'Today',
+    'ch5-heading': 'This anniversary',
+    'ch5-text': "And here we are. Still choosing each other, still building something beautiful. Write what this day means to you, and what you're looking forward to together.",
+    'end-heart-txt': 'To be continued, always',
+    // Game intro
+    'intro-eyebrow': 'Chapter II · Just for us',
+    'intro-title': 'How well do you<br>know <em>us</em>?',
+    'intro-sub': 'A playful quiz about our love story, our quirks, and the little things only the two of us know. No cheating!',
+    'btn-start': "Let's Play →",
+    // Letter
+    'letter-eyebrow': 'Chapter III · A Letter',
+    'letter-title': 'To you, my constant rhyme',
+    'letter-lead': 'A short letter, written to match the tone of the pages — soft, warm, and rhymed just for you.',
+    'signature': 'always yours,<br><strong>—</strong> with love',
+    'letter-footer-txt': 'Made with ♥ · For you · Always',
+    // Back links
+    'back': '← Back',
+  },
+  ar: {
+    // Index
+    'date-tag': 'ذكرانا ✦ يومٌ خاص',
+    'main-title': 'صُنع بكل الحب،<br><span>لأجلكِ وحدكِ</span>',
+    'subtitle': 'عالمٌ صغير بنيته — لنا وحدنا',
+    'card-num-1': 'الفصل الأول',
+    'card-title-1': 'اقرئي قصتنا',
+    'card-desc-1': 'كل بداية، كل لحظة، كل ذكرى نسجناها معاً لتصبح شيئاً جميلاً.',
+    'card-arrow-1': 'افتحي → ',
+    'card-num-2': 'الفصل الثاني',
+    'card-title-2': 'لعبة صغيرة',
+    'card-desc-2': 'ما مدى معرفتكِ بنا؟ مسابقة مرحة صُنعت لنا وحدنا — لا غش!',
+    'card-arrow-2': 'العبي → ',
+    'card-num-3': 'الفصل الثالث',
+    'card-title-3': 'رسالة الذكرى',
+    'card-desc-3': 'كلماتٌ كتبتها من القلب — محفوظة هنا للأبد، لتقرئيها حين تحتاجين لابتسامة.',
+    'card-arrow-3': 'اقرئي → ',
+    'footer-txt': 'صُنع بـ ♥ · لأجلكِ · دائماً',
+    // Nav
+    'nav-story': 'قصتنا',
+    'nav-game': 'لعبتنا الصغيرة',
+    'nav-letter': 'رسالة الذكرى',
+    // Story
+    'hero-eyebrow': '✦ بداية كل شيء ✦',
+    'hero-title': 'قصّتُنا <em>معاً</em>',
+    'hero-sub': 'لكل حب قصة. هذه قصتنا — ترويها اللحظات والمشاعر والتفاصيل الصغيرة التي لا يعرفها غيرنا.',
+    'scroll-hint': '↓ مرّري للتذكّر',
+    'ch1-date': 'في البداية',
+    'ch1-heading': 'كيف التقينا',
+    'ch1-text': 'اكتبي قصتكِ هنا — أين التقيتما أول مرة، وما الذي فكّرتِ فيه، وما الذي جعلكِ تبتسمين.',
+    'ch2-date': 'اللحظة الحقيقية الأولى',
+    'ch2-heading': 'موعدنا الأول',
+    'ch2-text': 'استبدلي هذا بقصة موعدكما الأول — أين ذهبتما، وما ارتديتِ، وكم كنتِ متوترة، وتلك اللحظة التي لن تُنسى.',
+    'ch3-date': 'نقطة التحوّل',
+    'ch3-heading': 'حين أيقنتُ',
+    'ch3-text': 'تلك اللحظة الواحدة حين تلاءم كل شيء — حين عرفتِ فقط. اكتبيها هنا. التفاصيل الصغيرة هي الأجدر بالحفظ.',
+    'ch4-date': 'ذكرانا المفضّلة',
+    'ch4-heading': 'تلك التي نتحدث عنها دائماً',
+    'ch4-text': 'لكل زوجين تلك الرحلة، تلك الليلة، تلك الضحكة التي تُعرّفهما. اكتبي قصتكما هنا بكل التفاصيل.',
+    'ch5-date': 'اليوم',
+    'ch5-heading': 'هذه الذكرى',
+    'ch5-text': 'وها نحن هنا. لا نزال نختار بعضنا، لا نزال نبني شيئاً جميلاً. اكتبي ما يعنيه هذا اليوم لكِ.',
+    'end-heart-txt': 'يتبع... دائماً',
+    // Game
+    'intro-eyebrow': 'الفصل الثاني · لنا وحدنا',
+    'intro-title': 'ما مدى معرفتكِ<br>بـ<em>نا</em>؟',
+    'intro-sub': 'مسابقة مرحة عن قصة حبّنا وتفاصيلنا الصغيرة التي لا يعلمها سوانا. لا غش!',
+    'btn-start': 'لنلعب →',
+    // Letter
+    'letter-eyebrow': 'الفصل الثالث · رسالة',
+    'letter-title': 'إليكِ، قافيتي الدائمة',
+    'letter-lead': 'رسالة قصيرة، كُتبت لتتناغم مع روح الصفحات — ناعمة، دافئة، ومقفّاة لأجلكِ.',
+    'signature': 'لكِ دائماً،<br><strong>—</strong> بكل المحبة',
+    'letter-footer-txt': 'صُنع بـ ♥ · لأجلكِ · دائماً',
+    // Back
+    'back': 'رجوع →',
+  }
+};
 
 let currentLang = 'en';
 
